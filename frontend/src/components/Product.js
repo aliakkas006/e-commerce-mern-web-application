@@ -55,5 +55,3 @@ export default function Product({ product }) {
     </Card>
   );
 }
-
-// import { Store } from '../Store';
