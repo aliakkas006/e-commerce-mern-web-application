@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 
-export const Store = createContext();
+export  const Store = createContext();
 
 const initialState = {
   fullBox: false,

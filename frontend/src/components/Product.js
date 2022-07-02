@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Rating from "./Rating";
-import Store from "../Store";
+import {Store} from "../Store";
 
 export default function Product({ product }) {
   const { slug, name, image, rating, numReviews, price, countInStock } =
