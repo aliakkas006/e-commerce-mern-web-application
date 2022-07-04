@@ -46,7 +46,7 @@ export default function HomeScreen() {
       <Helmet>
         <title>E-shop</title>
       </Helmet>
-      <h1>Featured Products</h1>
+      <h2 className="text-warning">Featured Products</h2>
       <div className="products">
         {loading ? (
           <LoadingBox />

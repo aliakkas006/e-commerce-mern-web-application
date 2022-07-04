@@ -12,7 +12,7 @@ export default function Product({ product }) {
     product;
 
   return (
-    <Card>
+    <Card className="h-100 shadow-sm">
       <Link to={`/product/${slug}`}>
         <img src={image} className="card-img-top" alt={name} />
       </Link>
@@ -28,12 +28,10 @@ export default function Product({ product }) {
           </Button>
         ) : (
           <Link to={`/product/${slug}`}>
-            <Button>Add to cart</Button>
+            <Button variant="info text-light">Buy Now!</Button>
           </Link>
         )}
       </Card.Body>
     </Card>
   );
 }
-
-// onClick={() => addToCartHandler(product)}
