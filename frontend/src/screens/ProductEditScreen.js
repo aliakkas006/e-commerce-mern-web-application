@@ -44,7 +44,7 @@ const reducer = (state, action) => {
 
 export default function ProductEditScreen() {
   const navigate = useNavigate();
-  const params = useParams(); // /product/:id
+  const params = useParams();                           // /product/:id
   const { id: productId } = params;
 
   const { state } = useContext(Store);

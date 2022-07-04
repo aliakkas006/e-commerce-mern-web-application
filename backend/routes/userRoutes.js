@@ -66,6 +66,7 @@ userRouter.delete(
     }
   })
 );
+
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
@@ -118,6 +119,7 @@ userRouter.put(
       }
 
       const updatedUser = await user.save();
+
       res.send({
         _id: updatedUser._id,
         name: updatedUser.name,

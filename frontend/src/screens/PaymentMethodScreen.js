@@ -8,14 +8,13 @@ import { Store } from "../Store";
 
 export default function PaymentMethodScreen() {
   const navigate = useNavigate();
+  
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { shippingAddress, paymentMethod },
   } = state;
 
-  const [paymentMethodName, setPaymentMethod] = useState(
-    paymentMethod || "PayPal"
-  );
+  const [paymentMethodName, setPaymentMethod] = useState(paymentMethod);
 
   useEffect(() => {
     if (!shippingAddress.address) {
@@ -39,7 +38,7 @@ export default function PaymentMethodScreen() {
         </Helmet>
         <h1 className="my-3">Payment Method</h1>
         <Form onSubmit={submitHandler}>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <Form.Check
               type="radio"
               id="PayPal"
@@ -48,7 +47,7 @@ export default function PaymentMethodScreen() {
               checked={paymentMethodName === "PayPal"}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
-          </div>
+          </div> */}
           <div className="mb-3">
             <Form.Check
               type="radio"
@@ -59,6 +58,7 @@ export default function PaymentMethodScreen() {
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
+
           <div className="mb-3">
             <Button type="submit">Continue</Button>
           </div>

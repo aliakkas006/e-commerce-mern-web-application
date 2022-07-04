@@ -51,6 +51,7 @@ orderRouter.get(
         },
       },
     ]);
+
     const users = await User.aggregate([
       {
         $group: {
@@ -59,6 +60,7 @@ orderRouter.get(
         },
       },
     ]);
+
     const dailyOrders = await Order.aggregate([
       {
         $group: {
@@ -69,6 +71,7 @@ orderRouter.get(
       },
       { $sort: { _id: 1 } },
     ]);
+
     const productCategories = await Product.aggregate([
       {
         $group: {
@@ -119,49 +122,50 @@ orderRouter.put(
   })
 );
 
-// orderRouter.put(
-//   "/:id/pay",
-//   isAuth,
-//   expressAsyncHandler(async (req, res) => {
-//     const order = await Order.findById(req.params.id).populate(
-//       "user",
-//       "email name"
-//     );
-//     if (order) {
-//       order.isPaid = true;
-//       order.paidAt = Date.now();
-//       order.paymentResult = {
-//         id: req.body.id,
-//         status: req.body.status,
-//         update_time: req.body.update_time,
-//         email_address: req.body.email_address,
-//       };
+orderRouter.put(
+  "/:id/pay",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id).populate(
+      "user",
+      "email name"
+    );
+    if (order) {
+      order.isPaid = true;
+      order.paidAt = Date.now();
+      order.paymentResult = {
+        id: req.body.id,
+        status: req.body.status,
+        update_time: req.body.update_time,
+        email_address: req.body.email_address,
+      };
 
-//       const updatedOrder = await order.save();
-//       mailgun()
-//         .messages()
-//         .send(
-//           {
-//             from: "E-shop <eshop@mg.yourdomain.com>",
-//             to: `${order.user.name} <${order.user.email}>`,
-//             subject: `New order ${order._id}`,
-//             html: payOrderEmailTemplate(order),
-//           },
-//           (error, body) => {
-//             if (error) {
-//               console.log(error);
-//             } else {
-//               console.log(body);
-//             }
-//           }
-//         );
+      const updatedOrder = await order.save();
+      
+      mailgun()
+        .messages()
+        .send(
+          {
+            from: "E-shop <aliakkas006@gmail.com>",
+            to: `${order.user.name} <${order.user.email}>`,
+            subject: `New order ${order._id}`,
+            html: payOrderEmailTemplate(order),
+          },
+          (error, body) => {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log(body);
+            }
+          }
+        );
 
-//       res.send({ message: "Order Paid", order: updatedOrder });
-//     } else {
-//       res.status(404).send({ message: "Order Not Found" });
-//     }
-//   })
-// );
+      res.send({ message: "Order Paid", order: updatedOrder });
+    } else {
+      res.status(404).send({ message: "Order Not Found" });
+    }
+  })
+);
 
 orderRouter.delete(
   "/:id",
@@ -179,3 +183,6 @@ orderRouter.delete(
 );
 
 export default orderRouter;
+
+
+
