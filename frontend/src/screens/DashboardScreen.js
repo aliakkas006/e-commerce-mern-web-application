@@ -8,6 +8,7 @@ import MessageBox from "../components/MessageBox";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -55,10 +56,9 @@ export default function DashboardScreen() {
     fetchData();
   }, [userInfo]);
 
-
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1 className="text-info mb-3">Admin Dashboard</h1>
       {loading ? (
         <LoadingBox />
       ) : error ? (
@@ -67,7 +67,7 @@ export default function DashboardScreen() {
         <>
           <Row>
             <Col md={4}>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Body>
                   <Card.Title>
                     {summary.users && summary.users[0]
@@ -79,7 +79,7 @@ export default function DashboardScreen() {
               </Card>
             </Col>
             <Col md={4}>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Body>
                   <Card.Title>
                     {summary.orders && summary.users[0]
@@ -91,7 +91,7 @@ export default function DashboardScreen() {
               </Card>
             </Col>
             <Col md={4}>
-              <Card>
+              <Card className="shadow-lg">
                 <Card.Body>
                   <Card.Title>
                     $
@@ -104,25 +104,29 @@ export default function DashboardScreen() {
               </Card>
             </Col>
           </Row>
-          <div className="my-3">
-            <h2>Sales</h2>
-            {summary.dailyOrders.length === 0 ? (
-              <MessageBox>No Sale</MessageBox>
-            ) : (
-              <Chart
-                width="100%"
-                height="400px"
-                chartType="AreaChart"
-                loader={<div>Loading Chart...</div>}
-                data={[
-                  ["Date", "Sales"],
-                  ...summary.dailyOrders.map((x) => [x._id, x.sales]),
-                ]}
-              ></Chart>
-            )}
+
+          <div className="my-5">
+            <Container>
+              <h2 className="text-warning">Sales</h2>
+              {summary.dailyOrders.length === 0 ? (
+                <MessageBox>No Sale</MessageBox>
+              ) : (
+                <Chart
+                  width="100%"
+                  height="400px"
+                  chartType="AreaChart"
+                  loader={<div>Loading Chart...</div>}
+                  data={[
+                    ["Date", "Sales"],
+                    ...summary.dailyOrders.map((x) => [x._id, x.sales]),
+                  ]}
+                ></Chart>
+              )}
+            </Container>
           </div>
-          <div className="my-3">
-            <h2>Categories</h2>
+
+          <div className="my-5">
+            <h2 className="text-warning">Categories</h2>
             {summary.productCategories.length === 0 ? (
               <MessageBox>No Category</MessageBox>
             ) : (

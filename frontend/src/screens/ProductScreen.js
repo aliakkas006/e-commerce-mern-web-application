@@ -155,7 +155,7 @@ export default function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Pirce: <span className="text-warning">${product.price}</span> </ListGroup.Item>
             <ListGroup.Item>
               <Row xs={1} md={2} className="g-2">
                 {[product.image, ...product.images].map((x) => (
@@ -187,7 +187,7 @@ export default function ProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>${product.price}</Col>
+                    <Col className="text-warning">${product.price}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -206,7 +206,7 @@ export default function ProductScreen() {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">
+                      <Button onClick={addToCartHandler} variant="warning opacity-50 text-dark">
                         Add to Cart
                       </Button>
                     </div>
@@ -218,7 +218,7 @@ export default function ProductScreen() {
         </Col>
       </Row>
       <div className="my-3">
-        <h2 ref={reviewsRef}>Reviews</h2>
+        <h2 ref={reviewsRef} className="text-primary opacity-50">Reviews</h2>
         <div className="mb-3">
           {product.reviews.length === 0 && (
             <MessageBox>There is no review</MessageBox>
@@ -237,9 +237,9 @@ export default function ProductScreen() {
         <div className="my-3">
           {userInfo ? (
             <form onSubmit={submitHandler}>
-              <h2>Write a customer review</h2>
+              <h2 className="text-primary opacity-50">Write a customer review</h2>
               <Form.Group className="mb-3" controlId="rating">
-                <Form.Label>Rating</Form.Label>
+                <Form.Label className="text-warning">Rating</Form.Label>
                 <Form.Select
                   aria-label="Rating"
                   value={rating}
@@ -267,7 +267,7 @@ export default function ProductScreen() {
               </FloatingLabel>
 
               <div className="mb-3">
-                <Button disabled={loadingCreateReview} type="submit">
+                <Button disabled={loadingCreateReview} type="submit" variant="dark">
                   Submit
                 </Button>
                 {loadingCreateReview && <LoadingBox></LoadingBox>}

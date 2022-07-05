@@ -91,7 +91,7 @@ function App() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/cart" className="nav-link">
+                  <Link to="/cart" className="nav-link text-warning text-bold">
                     Cart
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
@@ -99,22 +99,26 @@ function App() {
                       </Badge>
                     )}
                   </Link>
+
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                      <LinkContainer to="/profile">
-                        <NavDropdown.Item>User Profile</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/orderhistory">
-                        <NavDropdown.Item>Order History</NavDropdown.Item>
-                      </LinkContainer>
-                      <NavDropdown.Divider />
-                      <Link
-                        className="dropdown-item"
-                        to="#signout"
-                        onClick={signoutHandler}
-                      >
-                        Sign Out
-                      </Link>
+                      <div className="shadow-lg">
+                        <LinkContainer to="/profile">
+                          <NavDropdown.Item>User Profile</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/orderhistory">
+                          <NavDropdown.Item>Order History</NavDropdown.Item>
+                        </LinkContainer>
+
+                        <NavDropdown.Divider />
+                        <Link
+                          className="dropdown-item"
+                          to="#signout"
+                          onClick={signoutHandler}
+                        >
+                          Sign Out
+                        </Link>
+                      </div>
                     </NavDropdown>
                   ) : (
                     <Link className="nav-link" to="/signin">
@@ -123,18 +127,20 @@ function App() {
                   )}
                   {userInfo && userInfo.isAdmin && (
                     <NavDropdown title="Admin" id="admin-nav-dropdown">
-                      <LinkContainer to="/admin/dashboard">
-                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/products">
-                        <NavDropdown.Item>Products</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/orders">
-                        <NavDropdown.Item>Orders</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/users">
-                        <NavDropdown.Item>Users</NavDropdown.Item>
-                      </LinkContainer>
+                      <div className="shadow-lg">
+                        <LinkContainer to="/admin/dashboard">
+                          <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/products">
+                          <NavDropdown.Item>Products</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/orders">
+                          <NavDropdown.Item>Orders</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/users">
+                          <NavDropdown.Item>Users</NavDropdown.Item>
+                        </LinkContainer>
+                      </div>
                     </NavDropdown>
                   )}
                 </Nav>
@@ -266,7 +272,9 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">Copyright@2022.All rights reserved.</div>
+          <div className="text-center my-3">
+            Copyright@e-shop 2022.All rights reserved.
+          </div>
         </footer>
       </div>
     </BrowserRouter>

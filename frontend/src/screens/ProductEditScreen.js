@@ -44,7 +44,7 @@ const reducer = (state, action) => {
 
 export default function ProductEditScreen() {
   const navigate = useNavigate();
-  const params = useParams();                           // /product/:id
+  const params = useParams(); // /product/:id
   const { id: productId } = params;
 
   const { state } = useContext(Store);
@@ -163,16 +163,16 @@ export default function ProductEditScreen() {
       <Helmet>
         <title>Edit Product ${productId}</title>
       </Helmet>
-      <h1>Edit Product {productId}</h1>
+      <h2 className="text-warning opacity-50">Edit Product {productId}</h2>
 
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <Form onSubmit={submitHandler}>
+        <Form onSubmit={submitHandler} className="w-75">
           <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
+            <Form.Label className="text-info">Name</Form.Label>
             <Form.Control
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -180,7 +180,7 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="slug">
-            <Form.Label>Slug</Form.Label>
+            <Form.Label className="text-info">Slug</Form.Label>
             <Form.Control
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
@@ -188,7 +188,7 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Price</Form.Label>
+            <Form.Label className="text-info">Price</Form.Label>
             <Form.Control
               value={price}
               onChange={(e) => setPrice(e.target.value)}
@@ -196,7 +196,7 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="image">
-            <Form.Label>Image File</Form.Label>
+            <Form.Label className="text-info">Image File</Form.Label>
             <Form.Control
               value={image}
               onChange={(e) => setImage(e.target.value)}
@@ -204,13 +204,13 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="imageFile">
-            <Form.Label>Upload Image</Form.Label>
+            <Form.Label className="text-info">Upload Image</Form.Label>
             <Form.Control type="file" onChange={uploadFileHandler} />
             {loadingUpload && <LoadingBox></LoadingBox>}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="additionalImage">
-            <Form.Label>Additional Images</Form.Label>
+            <Form.Label className="text-info">Additional Images</Form.Label>
             {images.length === 0 && <MessageBox>No image</MessageBox>}
             <ListGroup variant="flush">
               {images.map((x) => (
@@ -224,7 +224,9 @@ export default function ProductEditScreen() {
             </ListGroup>
           </Form.Group>
           <Form.Group className="mb-3" controlId="additionalImageFile">
-            <Form.Label>Upload Aditional Image</Form.Label>
+            <Form.Label className="text-info">
+              Upload Aditional Image
+            </Form.Label>
             <Form.Control
               type="file"
               onChange={(e) => uploadFileHandler(e, true)}
@@ -233,7 +235,7 @@ export default function ProductEditScreen() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="category">
-            <Form.Label>Category</Form.Label>
+            <Form.Label className="text-info">Category</Form.Label>
             <Form.Control
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -241,7 +243,7 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="brand">
-            <Form.Label>Brand</Form.Label>
+            <Form.Label className="text-info">Brand</Form.Label>
             <Form.Control
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
@@ -249,7 +251,7 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="countInStock">
-            <Form.Label>Count In Stock</Form.Label>
+            <Form.Label className="text-info">Count In Stock</Form.Label>
             <Form.Control
               value={countInStock}
               onChange={(e) => setCountInStock(e.target.value)}
@@ -257,7 +259,7 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="description">
-            <Form.Label>Description</Form.Label>
+            <Form.Label className="text-info">Description</Form.Label>
             <Form.Control
               value={description}
               onChange={(e) => setDescription(e.target.value)}

@@ -21,14 +21,14 @@ export default function Product({ product }) {
           <Card.Title>{name}</Card.Title>
         </Link>
         <Rating rating={rating} numReviews={numReviews} />
-        <Card.Text>${price}</Card.Text>
+        <Card.Text className="text-bold">${price} </Card.Text>
         {countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock
           </Button>
         ) : (
           <Link to={`/product/${slug}`}>
-            <Button variant="info text-light">Buy Now!</Button>
+            <Button variant="info text-light opacity-50">Buy Now!</Button>
           </Link>
         )}
       </Card.Body>

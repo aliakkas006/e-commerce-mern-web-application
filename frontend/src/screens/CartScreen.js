@@ -42,7 +42,7 @@ export default function CartScreen() {
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
-      <h1>Shopping Cart</h1>
+      <h1 className="text-info opacity-50 mb-5">Shopping Cart</h1>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
@@ -105,15 +105,15 @@ export default function CartScreen() {
                 <ListGroup.Item>
                   <h3>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
-                    items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                    items) :
+                    <span className="text-warning">${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</span>
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-grid">
                     <Button
                       type="button"
-                      variant="primary"
+                      variant="warning"
                       onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
                     >

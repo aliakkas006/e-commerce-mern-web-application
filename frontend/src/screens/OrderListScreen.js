@@ -37,6 +37,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
 export default function OrderListScreen() {
   const navigate = useNavigate();
   const { state } = useContext(Store);
@@ -92,7 +93,7 @@ export default function OrderListScreen() {
       <Helmet>
         <title>Orders</title>
       </Helmet>
-      <h1>Orders</h1>
+      <h1 className="text-info opacity-50">Orders</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -117,7 +118,7 @@ export default function OrderListScreen() {
                 <td>{order._id}</td>
                 <td>{order.user ? order.user.name : "DELETED USER"}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.totalPrice.toFixed(2)}</td>
+                <td>${order.totalPrice.toFixed(2)}</td>
                 <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
 
                 <td>
@@ -138,7 +139,7 @@ export default function OrderListScreen() {
                   &nbsp;
                   <Button
                     type="button"
-                    variant="light"
+                    variant="danger"
                     onClick={() => deleteHandler(order)}
                   >
                     Delete

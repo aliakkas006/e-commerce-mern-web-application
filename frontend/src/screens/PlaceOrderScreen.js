@@ -88,7 +88,7 @@ export default function PlaceOrderScreen() {
       <Helmet>
         <title>Preview Order</title>
       </Helmet>
-      <h1 className="my-3">Preview Order</h1>
+      <h1 className="my-3 text-info opacity-50">Preview Order</h1>
       <Row>
         <Col md={8}>
           <Card className="mb-3">
@@ -170,7 +170,7 @@ export default function PlaceOrderScreen() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong>${cart.totalPrice.toFixed(2)}</strong>
+                      <strong className="text-warning">${cart.totalPrice.toFixed(2)}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
@@ -178,6 +178,7 @@ export default function PlaceOrderScreen() {
                   <div className="d-grid">
                     <Button
                       type="button"
+                      variant="warning"
                       onClick={placeOrderHandler}
                       disabled={cart.cartItems.length === 0}
                     >

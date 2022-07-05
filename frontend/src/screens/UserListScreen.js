@@ -101,7 +101,7 @@ export default function UserListScreen() {
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1>Users</h1>
+      <h1 className="text-info opacity-50">Users</h1>
 
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
@@ -137,7 +137,7 @@ export default function UserListScreen() {
                   &nbsp;
                   <Button
                     type="button"
-                    variant="light"
+                    variant="danger"
                     onClick={() => deleteHandler(user)}
                   >
                     Delete

@@ -54,7 +54,7 @@ const reducer = (state, action) => {
 
     case "DELETE_RESET":
       return { ...state, loadingDelete: false, successDelete: false };
-      
+
     default:
       return state;
   }
@@ -147,7 +147,7 @@ export default function ProductListScreen() {
     <div>
       <Row>
         <Col>
-          <h1>Products</h1>
+          <h1 className="text-info opacity-50">Products</h1>
         </Col>
         <Col className="col text-end">
           <div>
@@ -183,7 +183,7 @@ export default function ProductListScreen() {
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
-                  <td>{product.price}</td>
+                  <td>${product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
@@ -197,7 +197,7 @@ export default function ProductListScreen() {
                     &nbsp;
                     <Button
                       type="button"
-                      variant="light"
+                      variant="danger"
                       onClick={() => deleteHandler(product)}
                     >
                       Delete
