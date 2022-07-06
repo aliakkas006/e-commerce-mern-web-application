@@ -42,7 +42,7 @@ export default function CartScreen() {
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
-      <h1 className="text-info opacity-50 mb-5">Shopping Cart</h1>
+      <h2 className="text-info opacity-50 mb-5">Shopping Cart</h2>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
@@ -99,7 +99,7 @@ export default function CartScreen() {
           )}
         </Col>
         <Col md={4}>
-          <Card>
+          <Card className="shadow">
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>

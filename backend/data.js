@@ -9,8 +9,8 @@ const data = {
       isAdmin: true,
     },
     {
-      name: "John",
-      email: "user@example.com",
+      name: "Anis",
+      email: "anis@gmail.com",
       password: bcrypt.hashSync("123456"),
       isAdmin: false,
     },

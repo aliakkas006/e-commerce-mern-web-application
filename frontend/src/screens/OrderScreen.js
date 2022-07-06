@@ -71,9 +71,11 @@ export default function OrderScreen() {
       <h2 className="my-3 text-info">Order {orderId}</h2>
       <Row>
         <Col md={8}>
-          <Card className="mb-3">
+          <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title className="text-primary opacity-50">
+                Shipping information
+              </Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {order.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {order.shippingAddress.address},
@@ -89,9 +91,12 @@ export default function OrderScreen() {
               )}
             </Card.Body>
           </Card>
-          <Card className="mb-3">
+
+          <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title className="text-primary opacity-50">
+                Payment system
+              </Card.Title>
               <Card.Text>
                 <strong>Method:</strong> {order.paymentMethod}
               </Card.Text>
@@ -105,7 +110,7 @@ export default function OrderScreen() {
             </Card.Body>
           </Card>
 
-          <Card className="mb-3">
+          <Card className="mb-3 shadow-sm">
             <Card.Body>
               <Card.Title>Items</Card.Title>
               <ListGroup variant="flush">
@@ -123,7 +128,7 @@ export default function OrderScreen() {
                       <Col md={3}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.price}</Col>
+                      <Col md={3} className="text-bold">${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -132,7 +137,7 @@ export default function OrderScreen() {
           </Card>
         </Col>
         <Col md={4}>
-          <Card className="mb-3">
+          <Card className="mb-3 shadow">
             <Card.Body>
               <Card.Title>Order Summary</Card.Title>
               <ListGroup variant="flush">
@@ -160,7 +165,9 @@ export default function OrderScreen() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong className="text-warning">${order.totalPrice.toFixed(2)}</strong>
+                      <strong className="text-warning">
+                        ${order.totalPrice.toFixed(2)}
+                      </strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>

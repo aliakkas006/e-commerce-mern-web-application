@@ -33,7 +33,6 @@ import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import UserListScreen from "./screens/UserListScreen";
 import UserEditScreen from "./screens/UserEditScreen";
-import MapScreen from "./screens/MapScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -187,14 +186,6 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route
-                path="/map"
-                element={
-                  <ProtectedRoute>
-                    <MapScreen />
-                  </ProtectedRoute>
-                }
-              />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route
                 path="/order/:id"
@@ -203,7 +194,7 @@ function App() {
                     <OrderScreen />
                   </ProtectedRoute>
                 }
-              ></Route>
+              />
               <Route
                 path="/orderhistory"
                 element={
@@ -211,12 +202,9 @@ function App() {
                     <OrderHistoryScreen />
                   </ProtectedRoute>
                 }
-              ></Route>
-              <Route
-                path="/shipping"
-                element={<ShippingAddressScreen />}
-              ></Route>
-              <Route path="/payment" element={<PaymentMethodScreen />}></Route>
+              />
+              <Route path="/shipping" element={<ShippingAddressScreen />} />
+              <Route path="/payment" element={<PaymentMethodScreen />} />
               {/* Admin Routes */}
               <Route
                 path="/admin/dashboard"
@@ -225,7 +213,7 @@ function App() {
                     <DashboardScreen />
                   </AdminRoute>
                 }
-              ></Route>
+              />
               <Route
                 path="/admin/orders"
                 element={
@@ -233,7 +221,7 @@ function App() {
                     <OrderListScreen />
                   </AdminRoute>
                 }
-              ></Route>
+              />
               <Route
                 path="/admin/users"
                 element={
@@ -241,7 +229,7 @@ function App() {
                     <UserListScreen />
                   </AdminRoute>
                 }
-              ></Route>
+              />
               <Route
                 path="/admin/products"
                 element={
@@ -249,7 +237,7 @@ function App() {
                     <ProductListScreen />
                   </AdminRoute>
                 }
-              ></Route>
+              />
               <Route
                 path="/admin/product/:id"
                 element={
@@ -257,7 +245,7 @@ function App() {
                     <ProductEditScreen />
                   </AdminRoute>
                 }
-              ></Route>
+              />
               <Route
                 path="/admin/user/:id"
                 element={
@@ -265,7 +253,7 @@ function App() {
                     <UserEditScreen />
                   </AdminRoute>
                 }
-              ></Route>
+              />
 
               <Route path="/" element={<HomeScreen />} />
             </Routes>

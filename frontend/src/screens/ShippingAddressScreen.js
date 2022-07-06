@@ -69,9 +69,13 @@ export default function ShippingAddressScreen() {
       </Helmet>
 
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className="container small-container">
-        <h1 className="my-3 text-info opacity-50">Shipping Address</h1>
-        <Form onSubmit={submitHandler} className="w-50">
+
+      <div className="container small-container d-flex flex-column justify-content-center align-items-center">
+        <h2 className="my-3 text-info opacity-50">Shipping Address</h2>
+        <Form
+          onSubmit={submitHandler}
+          className="w-50 px-5 py-5 rounded shadow-lg"
+        >
           <Form.Group className="mb-3" controlId="fullName">
             <Form.Label>Full Name</Form.Label>
             <Form.Control
@@ -112,24 +116,6 @@ export default function ShippingAddressScreen() {
               required
             />
           </Form.Group>
-          <div className="mb-3">
-            <Button
-              id="chooseOnMap"
-              type="button"
-              variant="light"
-              onClick={() => navigate("/map")}
-            >
-              Choose Location On Map
-            </Button>
-            {shippingAddress.location && shippingAddress.location.lat ? (
-              <div>
-                LAT: {shippingAddress.location.lat}
-                LNG:{shippingAddress.location.lng}
-              </div>
-            ) : (
-              <div>No location</div>
-            )}
-          </div>
 
           <div className="mb-3">
             <Button variant="primary" type="submit">

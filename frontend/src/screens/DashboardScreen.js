@@ -58,7 +58,7 @@ export default function DashboardScreen() {
 
   return (
     <div>
-      <h1 className="text-info mb-3">Admin Dashboard</h1>
+      <h2 className="text-info mb-3">Admin Dashboard</h2>
       {loading ? (
         <LoadingBox />
       ) : error ? (
@@ -67,7 +67,7 @@ export default function DashboardScreen() {
         <>
           <Row>
             <Col md={4}>
-              <Card className="shadow-lg">
+              <Card className="shadow">
                 <Card.Body>
                   <Card.Title>
                     {summary.users && summary.users[0]
@@ -79,7 +79,7 @@ export default function DashboardScreen() {
               </Card>
             </Col>
             <Col md={4}>
-              <Card className="shadow-lg">
+              <Card className="shadow">
                 <Card.Body>
                   <Card.Title>
                     {summary.orders && summary.users[0]
@@ -91,7 +91,7 @@ export default function DashboardScreen() {
               </Card>
             </Col>
             <Col md={4}>
-              <Card className="shadow-lg">
+              <Card className="shadow">
                 <Card.Body>
                   <Card.Title>
                     $

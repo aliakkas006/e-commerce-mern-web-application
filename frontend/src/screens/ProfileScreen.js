@@ -68,43 +68,51 @@ export default function ProfileScreen() {
       <Helmet>
         <title>User Profile</title>
       </Helmet>
-      <h1 className="my-3 text=info opacity-50">User Profile</h1>
-      <form onSubmit={submitHandler} className="w-50">
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </Form.Group>
-        <div className="mb-3">
-          <Button type="submit" variant="dark">Update</Button>
-        </div>
-      </form>
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <h2 className="my-3 text-info opacity-50">User Profile</h2>
+
+        <form
+          onSubmit={submitHandler}
+          className="w-50 px-5 py-5 rounded shadow-lg"
+        >
+          <Form.Group className="mb-3" controlId="name">
+            <Form.Label className="text-bold">Name</Form.Label>
+            <Form.Control
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="name">
+            <Form.Label className="text-bold">Email</Form.Label>
+            <Form.Control
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="password">
+            <Form.Label className="text-bold">Password</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="password">
+            <Form.Label className="text-bold">Confirm Password</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </Form.Group>
+          <div className="mb-3">
+            <Button type="submit" variant="dark">
+              Update
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

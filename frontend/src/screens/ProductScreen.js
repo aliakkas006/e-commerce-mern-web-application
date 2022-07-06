@@ -155,7 +155,9 @@ export default function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce: <span className="text-warning">${product.price}</span> </ListGroup.Item>
+            <ListGroup.Item>
+              Pirce: <span className="text-warning">${product.price}</span>{" "}
+            </ListGroup.Item>
             <ListGroup.Item>
               <Row xs={1} md={2} className="g-2">
                 {[product.image, ...product.images].map((x) => (
@@ -180,8 +182,9 @@ export default function ProductScreen() {
             </ListGroup.Item>
           </ListGroup>
         </Col>
+
         <Col md={3}>
-          <Card>
+          <Card className=" shadow">
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
@@ -202,11 +205,13 @@ export default function ProductScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="warning opacity-50 text-dark">
+                      <Button
+                        onClick={addToCartHandler}
+                        variant="warning opacity-50 text-dark"
+                      >
                         Add to Cart
                       </Button>
                     </div>
@@ -218,7 +223,9 @@ export default function ProductScreen() {
         </Col>
       </Row>
       <div className="my-3">
-        <h2 ref={reviewsRef} className="text-primary opacity-50">Reviews</h2>
+        <h2 ref={reviewsRef} className="text-primary opacity-50">
+          Customer reviews
+        </h2>
         <div className="mb-3">
           {product.reviews.length === 0 && (
             <MessageBox>There is no review</MessageBox>
@@ -236,8 +243,10 @@ export default function ProductScreen() {
         </ListGroup>
         <div className="my-3">
           {userInfo ? (
-            <form onSubmit={submitHandler}>
-              <h2 className="text-primary opacity-50">Write a customer review</h2>
+            <form onSubmit={submitHandler} className="w-50">
+              <h2 className="text-primary opacity-50">
+                Write a customer review
+              </h2>
               <Form.Group className="mb-3" controlId="rating">
                 <Form.Label className="text-warning">Rating</Form.Label>
                 <Form.Select
@@ -267,7 +276,11 @@ export default function ProductScreen() {
               </FloatingLabel>
 
               <div className="mb-3">
-                <Button disabled={loadingCreateReview} type="submit" variant="dark">
+                <Button
+                  disabled={loadingCreateReview}
+                  type="submit"
+                  variant="dark"
+                >
                   Submit
                 </Button>
                 {loadingCreateReview && <LoadingBox></LoadingBox>}

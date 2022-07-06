@@ -88,12 +88,14 @@ export default function PlaceOrderScreen() {
       <Helmet>
         <title>Preview Order</title>
       </Helmet>
-      <h1 className="my-3 text-info opacity-50">Preview Order</h1>
+      <h2 className="my-3 text-info opacity-50">Preview Order</h2>
       <Row>
         <Col md={8}>
-          <Card className="mb-3">
+          <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title className="text-primary opacity-50">
+                Shipping information
+              </Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
@@ -104,9 +106,11 @@ export default function PlaceOrderScreen() {
             </Card.Body>
           </Card>
 
-          <Card className="mb-3">
+          <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <Card.Title>Payment</Card.Title>
+              <Card.Title className="text-primary opacity-50">
+                Payment system
+              </Card.Title>
               <Card.Text>
                 <strong>Method:</strong> {cart.paymentMethod}
               </Card.Text>
@@ -114,9 +118,9 @@ export default function PlaceOrderScreen() {
             </Card.Body>
           </Card>
 
-          <Card className="mb-3">
+          <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <Card.Title>Items</Card.Title>
+              <Card.Title className="text-primary opacity-50">Items</Card.Title>
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
@@ -142,7 +146,7 @@ export default function PlaceOrderScreen() {
           </Card>
         </Col>
         <Col md={4}>
-          <Card>
+          <Card className="shadow">
             <Card.Body>
               <Card.Title>Order Summary</Card.Title>
               <ListGroup variant="flush">
@@ -170,7 +174,9 @@ export default function PlaceOrderScreen() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong className="text-warning">${cart.totalPrice.toFixed(2)}</strong>
+                      <strong className="text-warning">
+                        ${cart.totalPrice.toFixed(2)}
+                      </strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
