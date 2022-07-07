@@ -147,7 +147,7 @@ export default function ProductListScreen() {
     <div>
       <Row>
         <Col>
-          <h1 className="text-info opacity-50">Products</h1>
+          <h2 className="text-info opacity-50">Products</h2>
         </Col>
         <Col className="col text-end">
           <div>

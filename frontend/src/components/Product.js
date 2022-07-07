@@ -9,26 +9,26 @@ export default function Product({ product }) {
     product;
 
   return (
-    <Card className="h-100 shadow-sm">
-      <Link to={`/product/${slug}`}>
-        <img src={image} className="card-img-top" alt={name} />
-      </Link>
-      <Card.Body>
+      <Card className="shadow-sm">
         <Link to={`/product/${slug}`}>
-          <Card.Title>{name}</Card.Title>
+          <img src={image} className="card-img-top" alt={name} />
         </Link>
-        <Rating rating={rating} numReviews={numReviews} />
-        <Card.Text className="text-bold">${price} </Card.Text>
-        {countInStock === 0 ? (
-          <Button variant="light" disabled>
-            Out of stock
-          </Button>
-        ) : (
+        <Card.Body>
           <Link to={`/product/${slug}`}>
-            <Button variant="outline-info opacity-50">Buy Now!</Button>
+            <Card.Title>{name}</Card.Title>
           </Link>
-        )}
-      </Card.Body>
-    </Card>
+          <Rating rating={rating} numReviews={numReviews} />
+          <Card.Text className="text-bold">${price} </Card.Text>
+          {countInStock === 0 ? (
+            <Button variant="light" disabled>
+              Out of stock
+            </Button>
+          ) : (
+            <Link to={`/product/${slug}`}>
+              <Button variant="outline-info opacity-50">Buy Now!</Button>
+            </Link>
+          )}
+        </Card.Body>
+      </Card>
   );
 }
