@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 
-export  const Store = createContext();
+export const Store = createContext();
 
 const initialState = {
   fullBox: false,
@@ -27,10 +27,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "SET_FULLBOX_ON":
       return { ...state, fullBox: true };
-
     case "SET_FULLBOX_OFF":
       return { ...state, fullBox: false };
-
     case "CART_ADD_ITEM":
       // add to cart
       const newItem = action.payload;
@@ -52,13 +50,10 @@ function reducer(state, action) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
     }
-
     case "CART_CLEAR":
       return { ...state, cart: { ...state.cart, cartItems: [] } };
-
     case "USER_SIGNIN":
       return { ...state, userInfo: action.payload };
-
     case "USER_SIGNOUT":
       return {
         ...state,
@@ -69,7 +64,6 @@ function reducer(state, action) {
           paymentMethod: "",
         },
       };
-
     case "SAVE_SHIPPING_ADDRESS":
       return {
         ...state,
@@ -78,19 +72,6 @@ function reducer(state, action) {
           shippingAddress: action.payload,
         },
       };
-
-    case "SAVE_SHIPPING_ADDRESS_MAP_LOCATION":
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          shippingAddress: {
-            ...state.cart.shippingAddress,
-            location: action.payload,
-          },
-        },
-      };
-
     case "SAVE_PAYMENT_METHOD":
       return {
         ...state,

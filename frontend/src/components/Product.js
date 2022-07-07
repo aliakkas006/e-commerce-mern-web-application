@@ -1,10 +1,7 @@
 import React from "react";
-
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
 import { Link } from "react-router-dom";
-
 import Rating from "./Rating";
 
 export default function Product({ product }) {
@@ -28,7 +25,7 @@ export default function Product({ product }) {
           </Button>
         ) : (
           <Link to={`/product/${slug}`}>
-            <Button variant="info text-light opacity-50">Buy Now!</Button>
+            <Button variant="outline-info opacity-50">Buy Now!</Button>
           </Link>
         )}
       </Card.Body>

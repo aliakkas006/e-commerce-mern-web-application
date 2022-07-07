@@ -14,14 +14,12 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
       return { ...state, loading: true };
-
     case "FETCH_SUCCESS":
       return {
         ...state,
         summary: action.payload,
         loading: false,
       };
-
     case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
 
@@ -44,7 +42,6 @@ export default function DashboardScreen() {
         const { data } = await axios.get("/api/orders/summary", {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         });
-        // console.log(data);
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
         dispatch({
