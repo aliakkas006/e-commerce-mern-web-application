@@ -33,5 +33,5 @@ https://mern-e-commerce-web-apps.herokuapp.com/
 ### Cloud Database:
 MongoDB atlas.
 
-#### After all, This web application is fully scaleable. New product category and other system based requirements could be add or subtract.
+#### After all, This web application is fully scalable. New product category and other system based requirements could be add or subtract.
 Payment Method is like as Paypal integration is comming...
